@@ -1,0 +1,20 @@
+{
+    "name": "VK Fast Delete",
+    "description": "Delete VK messages by pressing \"Backspace\".",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "permissions": ["storage"],
+    "background": {
+        "scripts": ["/background_scripts/main.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://vk.com/*"],
+            "all_frames": true,
+            "js": ["/content_scripts/main.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "options_page": "/options/index.html"
+}
